@@ -1,0 +1,19 @@
+.header__logo {
+  width: 142px;
+  height: 33px;
+  transition: all 0.5s;
+}
+.header__logo:hover {
+  transform: scale(1.1);
+}
+@media screen and (max-width: 680px) {
+  .header__logo {
+    padding-left: 27px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .header__logo {
+    width: 104px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,26 @@
+.elements__like-btn {
+  display: block;
+  background: url(../../../images/Vector.svg);
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 15px;
+  width: 22px;
+  height: 19px;
+
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.elements__like-btn:hover {
+  opacity: 0.3;
+}
+.elements__like-btn:active {
+  transform: scale(1.5, 1.5);
+}
+.elements__like-btn:focus {
+  background: url(../../../images/Union.svg);
+}
