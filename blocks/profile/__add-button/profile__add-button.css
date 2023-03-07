@@ -9,7 +9,6 @@
   padding: 0;
   width: 150px;
   height: 50px;
-
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
@@ -21,7 +20,6 @@
   .profile__add-button {
     background-image: url(../../../images/bottons/Add\ Button\ big.svg);
     width: 282px;
-    height: 50px;
     margin-top: 36px;
   }
 }

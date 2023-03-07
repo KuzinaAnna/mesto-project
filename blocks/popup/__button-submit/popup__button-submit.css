@@ -4,15 +4,12 @@
   border: none;
   padding: 0;
   border-radius: 3px;
-
   background-color: #000;
   color: #fff;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-
   margin-top: 48px;
-
   cursor: pointer;
   transition: opacity 0.3s ease;
 }

@@ -13,8 +13,6 @@
 }
 @media screen and (max-width: 550px) {
   .popup__input-box {
-    max-height: 27px;
     width: 238px;
-    height: 27px;
   }
 }

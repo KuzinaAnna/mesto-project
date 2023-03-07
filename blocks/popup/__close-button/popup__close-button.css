@@ -9,11 +9,9 @@
   margin: 0;
   width: 32px;
   height: 32px;
-
   position: absolute;
   right: -40px;
   top: -40px;
-
   cursor: pointer;
   transition: opacity 0.2s ease;
 }

@@ -2,7 +2,6 @@
   min-width: 320px;
   min-height: 120px;
   padding-top: 40px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,10 +11,5 @@
 @media screen and (max-width: 1044px) {
   .profile {
     flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .profile {
   }
 }
