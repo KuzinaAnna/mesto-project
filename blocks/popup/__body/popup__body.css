@@ -1,7 +1,6 @@
 .popup__body {
   width: 100%;
   max-width: 358px;
-  margin: 0 36px 0 37px;
   padding: 34px 36px;
   display: flex;
   flex-direction: column;
@@ -15,5 +14,6 @@
   .popup__body {
     width: 282px;
     padding: 25px 22px;
+    margin: 0 19px 0 19px;
   }
 }

@@ -2,12 +2,10 @@
   max-width: 350px;
   margin: 0;
   padding-top: 16px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -15,6 +13,7 @@
 @media screen and (max-width: 932px) {
   .profile__info-subtitle {
     max-width: 200px;
+    max-height: 14px;
     padding-top: 14px;
     font-weight: 400;
     font-size: 14px;

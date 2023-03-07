@@ -1,15 +1,19 @@
 .popup__input-box {
   width: 358px;
-  height: 36px;
+  height: 27px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
   padding: 0;
   border: none;
-  border-bottom: 1px solid #000000;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 550px) {
   .popup__input-box {
+    max-height: 27px;
     width: 238px;
     height: 27px;
   }
