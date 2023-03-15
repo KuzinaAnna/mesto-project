@@ -1,9 +1,10 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
-/* page и header */
+/* page,header и main*/
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/main/main.css);
 /* profile */
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__main/profile__main.css);

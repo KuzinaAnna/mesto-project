@@ -1,8 +1,4 @@
 .page {
-  max-width: 880px;
-  min-width: 320px;
-  margin: auto;
-
   background-color: black;
   font-family: "Inter", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
