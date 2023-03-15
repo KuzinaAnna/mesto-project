@@ -1,5 +1,6 @@
 .main {
   max-width: 918px;
+  min-width: 320px;
   margin: auto;
   padding-left: 19px;
   padding-right: 19px;
