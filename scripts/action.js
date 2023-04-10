@@ -1,6 +1,6 @@
 //------------------------------------edit info-------------------------------------------------//
 // Обработчик «отправки» формы
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     let userName = document.querySelector("._userName").value;
     let userInfo = document.querySelector("._userInfo").value;
@@ -9,7 +9,7 @@ function handleFormSubmit(evt) {
     document.querySelector(".profile__info-subtitle").textContent = userInfo;
 }
 
-profileForm.addEventListener("submit", handleFormSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 //------------------------------------popup-------------------------------------------------//
 //ф-ция открытия модального окна
