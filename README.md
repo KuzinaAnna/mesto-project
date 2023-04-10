@@ -15,3 +15,4 @@
 - Flexbox
 - Grid-layout
 - Адаптивная и отзывчивая верстка
+- JavaScript
