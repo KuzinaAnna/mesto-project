@@ -2,99 +2,94 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
-  <link rel="icon" href="./images/logo_black.svg" type="image/svg">
-  <title>MESTO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="icon" href="./images/logo_black.svg" type="image/svg">
+    <title>MESTO</title>
 </head>
 
 <body class="page">
-  <header class="header">
-    <a href="#" target="_blank"><img class="header__logo" src="./images/logo.svg" alt="Логотип Mesto-Russia"></a>
-  </header>
-  <main class="main">
-    <section class="profile">
-      <div class="profile__main">
-        <img class="profile__avatar" src="./images/image.jpg" alt="Аватар пользователя">
-        <div class="profile__info">
-          <div class="profile__name-block">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button" aria-label="Редактировать профиль">
+    <header class="header">
+        <a href="#" target="_blank"><img class="header__logo" src="./images/logo.svg" alt="Логотип Mesto-Russia"></a>
+    </header>
+    <main class="main">
+        <section class="profile">
+            <div class="profile__main">
+                <img class="profile__avatar" src="./images/image.jpg" alt="Аватар пользователя">
+                <div class="profile__info">
+                    <div class="profile__name-block">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button _modal-open" data-modal-open='popup_edit' type="button"
+                            aria-label="Редактировать профиль">
+                        </button>
+                    </div>
+                    <p class="profile__info-subtitle">Исследователь океана</p>
+                </div>
+            </div>
+            <button class="profile__add-button _modal-open" data-modal-open='popup_places' type="button"
+                aria-label="Добавить новое фото">
             </button>
-          </div>
-          <p class="profile__info-subtitle">Исследователь океана</p>
-        </div>
-      </div>
-      <button class="profile__add-button" type="button" aria-label="Добавить новое фото">
-      </button>
-    </section>
-    <section class="elements">
-      <ul class="elements__list">
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/1.jpg" alt="Здание церкви в горах">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Карачаевск</h2>
-            <button class="elements__like-btn" type="button" aria-label="Поставить лайк"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/2.png"
-            alt="Гора эльбрус вдалеке в закатном солнечном свете">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__like-btn" type="button" aria-label="Поставить лайк"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/3.png"
-            alt="Гора эльбрус вдалеке в закатном солнечном свете">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__like-btn" type="button" aria-label="Острые пики заснеженной горы"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/2.png"
-            alt="Гора эльбрус вдалеке в закатном солнечном свете">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__like-btn" type="button" aria-label="Поставить лайк"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/3.png"
-            alt="Гора эльбрус вдалеке в закатном солнечном свете">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__like-btn" type="button" aria-label="Острые пики заснеженной горы"></button>
-          </div>
-        </li>
-        <li class="elements__item">
-          <img class="elements__photo" src="./images/elements/1.jpg" alt="Здание церкви в горах">
-          <div class="elements__info-block">
-            <h2 class="elements__title">Карачаево-Черкесская Республика</h2>
-            <button class="elements__like-btn" type="button" aria-label="Поставить лайк"></button>
-          </div>
-        </li>
-      </ul>
-    </section>
-  </main>
-  <footer class="footer">
-    <p class="footer__title">© 2023 Mesto Russia</p>
-  </footer>
+        </section>
+        <section class="elements">
+            <ul class="elements__list">
+            </ul>
+        </section>
+    </main>
 
-  <div class="popup ">
-    <div class="popup__body">
-      <button class="popup__close-button" type="button"></button>
-      <h3 class="popup__heading">Редактировать профиль</h3>
-      <form class="popup__form" name="form-info">
-        <input class="popup__input-box popup__input-box_place_name" placeholder="Имя" value="Жак-Ив Кусто" name="name">
-        <input class="popup__input-box" placeholder="О себе" value="Исследователь океана" name="about">
-        <button class="popup__button-submit" type="submit" aria-label="Сохранить">Сохранить</button>
-      </form>
+    <footer class="footer">
+        <p class="footer__title">© 2023 Mesto Russia</p>
+    </footer>
+
+    <div class="popup popup_edit" data-modal='popup_edit'>
+        <div class="popup__body">
+            <button class="popup__close-button" type="button"></button>
+            <h3 class="popup__heading">Редактировать профиль</h3>
+            <form class="popup__form _userInfoForm" name="form-info">
+                <input class="popup__input-box popup__input-box_place_name _userName" type="text" placeholder="Имя"
+                    value="Жак-Ив Кусто" name="name">
+                <input class="popup__input-box _userInfo" type="text" placeholder="О себе" value="Исследователь океана"
+                    name="about">
+                <button class="popup__button-submit" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+        </div>
     </div>
-  </div>
+
+    <div class="popup popup_places" data-modal='popup_places'>
+        <div class="popup__body">
+            <button class="popup__close-button" type="button"></button>
+            <h3 class="popup__heading">Новое место</h3>
+            <form class="popup__form _newPlacesForm" name="form-info">
+                <input class="popup__input-box popup__input-box_place_name _placeName" placeholder="Название"
+                    name="name">
+                <input class="popup__input-box _placeURL" placeholder="Ссылка на картинку" name="about">
+                <button class="popup__button-submit _placesBtn" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_image">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button"></button>
+            <img class="popup__img" src="#" alt="Картинка">
+            <h2 class="popup__img-caption">Архыз</h2>
+        </div>
+    </div>
+
+    <template id="card">
+        <li class="elements__item">
+            <img class="elements__photo " src="" alt="">
+            <button class="elements__delete-btn" type="button" aria-label="Удалить"></button>
+            <div class="elements__info-block">
+                <h2 class="elements__title"></h2>
+                <button class="elements__like-btn " type="button" aria-label="Поставить лайк"></button>
+            </div>
+        </li>
+    </template>
+
+    <script src="./scripts/const.js"></script>
+    <script src="./scripts/action.js"></script>
+
 </body>
 
 </html>
