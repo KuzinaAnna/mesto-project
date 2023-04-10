@@ -29,7 +29,7 @@ function closeModal(evt) {
 
 modalBtns.forEach((btn) => {
     btn.addEventListener("click", (evt) => {
-        let data = evt.target.dataset.modalOpen;
+        const data = evt.target.dataset.modalOpen;
 
         modals.forEach((modal) => {
             if (modal.dataset.modal === data) {
@@ -62,7 +62,7 @@ function addCard(imgValue, titleValue) {
     cardTemplateElement
         .querySelector(".elements__delete-btn")
         .addEventListener("click", function (evt) {
-            let deleteCardItem = evt.target.closest(".elements__item");
+            const deleteCardItem = evt.target.closest(".elements__item");
             deleteCardItem.remove();
         });
 
