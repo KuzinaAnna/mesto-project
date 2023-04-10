@@ -9,7 +9,7 @@ function handleFormSubmit(evt) {
     document.querySelector(".profile__info-subtitle").textContent = userInfo;
 }
 
-formElement.addEventListener("submit", handleFormSubmit);
+profileForm.addEventListener("submit", handleFormSubmit);
 
 //------------------------------------popup-------------------------------------------------//
 //ф-ция открытия модального окна
@@ -27,7 +27,7 @@ function closeModal(evt) {
     }
 }
 
-modalBtn.forEach((btn) => {
+modalBtns.forEach((btn) => {
     btn.addEventListener("click", (evt) => {
         let data = evt.target.dataset.modalOpen;
 

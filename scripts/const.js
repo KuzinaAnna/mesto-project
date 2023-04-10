@@ -1,6 +1,6 @@
-const formElement = document.querySelector("._userInfoForm");
+const profileForm = document.querySelector("._userInfoForm");
 //------
-const modalBtn = document.querySelectorAll("._modal-open");
+const modalBtns = document.querySelectorAll("._modal-open");
 const modals = document.querySelectorAll(".popup");
 //------
 const cardContainer = document.querySelector(".elements__list");
