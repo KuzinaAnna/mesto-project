@@ -43,6 +43,7 @@ function handleProfileFormSubmit(evt) {
     document.querySelector(".profile__info-subtitle").textContent = userInfo;
 
     closePopup(popupEdit);
+    profileForm.reset();
 }
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -93,6 +94,7 @@ function handleFormPlace(evt) {
     let titleValue = ImgName.value;
     addCard(imgValue, titleValue);
     closePopup(popupPlace);
+    cardAddForm.reset();
 }
 
 cardAddForm.addEventListener("submit", handleFormPlace);
