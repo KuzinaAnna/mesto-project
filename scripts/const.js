@@ -1,11 +1,22 @@
 const profileForm = document.querySelector("._userInfoForm");
+const cardAddForm = document.querySelector("._newPlacesForm");
+
+const popupEdit = document.querySelector(".popup_edit");
+const popupPlace = document.querySelector(".popup_places");
+
 //------
-const modalBtns = document.querySelectorAll("._modal-open");
+const openPopupBtns = document.querySelectorAll("._modal-open");
 const modals = document.querySelectorAll(".popup");
+
+const closePopupBtn = document.querySelector(".popup__close-button");
 //------
 const cardContainer = document.querySelector(".elements__list");
 const addPlacesBtn = document.querySelector("._placesBtn");
 const cardTemplate = document.querySelector("#card").content; //получаем содержимое шаблона
+
+const imgUrl = document.querySelector("._placeURL");
+const ImgName = document.querySelector("._placeName");
+
 //-------
 const initialCards = [
     {
