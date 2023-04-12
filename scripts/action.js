@@ -36,8 +36,8 @@ modals.forEach((closePopupBtn) => {
 // Обработчик «отправки» формы
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-    let userName = document.querySelector("._userName").value;
-    let userInfo = document.querySelector("._userInfo").value;
+    userName = document.querySelector("._userName").value;
+    userInfo = document.querySelector("._userInfo").value;
 
     document.querySelector(".profile__name").textContent = userName;
     document.querySelector(".profile__info-subtitle").textContent = userInfo;
@@ -90,8 +90,8 @@ function createCard(imgValue, titleValue) {
 
 function handleFormPlace(evt) {
     evt.preventDefault();
-    let imgValue = imgUrl.value;
-    let titleValue = ImgName.value;
+    imgValue = imgUrl.value;
+    titleValue = ImgName.value;
     addCard(imgValue, titleValue);
     closePopup(popupPlace);
     cardAddForm.reset();
