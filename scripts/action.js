@@ -49,7 +49,6 @@ function handleProfileFormSubmit(evt) {
     profileUserSubtitle.textContent = popupUserInfo.value;
 
     closePopup(popupEdit);
-    profileForm.reset();
 }
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
