@@ -44,11 +44,9 @@ closePopupBtns.forEach((modal) => {
 // Обработчик «отправки» формы
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-    userName = document.querySelector("._userName").value;
-    userInfo = document.querySelector("._userInfo").value;
 
-    document.querySelector(".profile__name").textContent = userName;
-    document.querySelector(".profile__info-subtitle").textContent = userInfo;
+    profileName.textContent = popupUserName.value;
+    profileUserSubtitle.textContent = popupUserInfo.value;
 
     closePopup(popupEdit);
     profileForm.reset();
