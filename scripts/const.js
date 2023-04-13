@@ -15,7 +15,7 @@ const addPlacesBtn = document.querySelector("._placesBtn");
 const cardTemplate = document.querySelector("#card").content; //получаем содержимое шаблона
 
 const imgUrl = document.querySelector("._placeURL");
-const ImgName = document.querySelector("._placeName");
+const imgName = document.querySelector("._placeName");
 
 //-------
 const initialCards = [

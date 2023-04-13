@@ -91,7 +91,7 @@ function createCard(imgValue, titleValue) {
 function handleFormPlace(evt) {
     evt.preventDefault();
     imgValue = imgUrl.value;
-    titleValue = ImgName.value;
+    titleValue = imgName.value;
     addCard(imgValue, titleValue);
     closePopup(popupPlace);
     cardAddForm.reset();
