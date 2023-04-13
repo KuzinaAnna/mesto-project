@@ -15,7 +15,7 @@ const profileUserSubtitle = document.querySelector(".profile__info-subtitle");
 
 const modals = document.querySelectorAll(".popup");
 
-const closePopupBtn = document.querySelector(".popup__close-button");
+const closePopupBtns = document.querySelectorAll(".popup__close-button");
 //------
 const cardContainer = document.querySelector(".elements__list");
 const addPlacesBtn = document.querySelector("._placesBtn");
