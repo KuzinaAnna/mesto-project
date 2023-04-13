@@ -38,7 +38,7 @@ buttonProfileEdit.addEventListener("click", function (evt) {
 });
 
 closePopupBtns.forEach((modal) => {
-    modal.addEventListener("click", (evt) => closeModal(evt));
+    modal.addEventListener("click", closeModal);
 });
 //------------------------------------edit info-------------------------------------------------//
 // Обработчик «отправки» формы
