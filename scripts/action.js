@@ -17,15 +17,23 @@ function closeModal(evt) {
     }
 }
 
-openPopupBtns.forEach((btn) => {
-    btn.addEventListener("click", (evt) => {
-        const data = evt.target.dataset.modalOpen;
+buttonAddCard.addEventListener("click", (evt) => {
+    const data = evt.target.dataset.modalOpen;
+    modals.forEach((modal) => {
+        if (modal.dataset.modal === data) {
+            openPopup(modal);
+        }
+    });
+});
 
-        modals.forEach((modal) => {
-            if (modal.dataset.modal === data) {
-                openPopup(modal);
-            }
-        });
+buttonProfileEdit.addEventListener("click", function (evt) {
+    const data = evt.target.dataset.modalOpen;
+    modals.forEach((modal) => {
+        if (modal.dataset.modal === data) {
+            openPopup(modal);
+            popupUserName.value = profileName.textContent;
+            popupUserInfo.value = profileUserSubtitle.textContent;
+        }
     });
 });
 

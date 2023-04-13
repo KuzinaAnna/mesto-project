@@ -5,7 +5,14 @@ const popupEdit = document.querySelector(".popup_edit");
 const popupPlace = document.querySelector(".popup_places");
 
 //------
-const openPopupBtns = document.querySelectorAll("._modal-open");
+//const openPopupBtns = document.querySelectorAll("._modal-open");
+const buttonAddCard = document.querySelector(".profile__add-button");
+const buttonProfileEdit = document.querySelector(".profile__edit-button");
+const popupUserName = document.querySelector("._userName");
+const popupUserInfo = document.querySelector("._userInfo");
+const profileName = document.querySelector(".profile__name");
+const profileUserSubtitle = document.querySelector(".profile__info-subtitle");
+
 const modals = document.querySelectorAll(".popup");
 
 const closePopupBtn = document.querySelector(".popup__close-button");
