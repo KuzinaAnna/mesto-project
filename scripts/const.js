@@ -5,7 +5,6 @@ const popupEdit = document.querySelector(".popup_edit");
 const popupPlace = document.querySelector(".popup_places");
 
 //------
-//const openPopupBtns = document.querySelectorAll("._modal-open");
 const buttonAddCard = document.querySelector(".profile__add-button");
 const buttonProfileEdit = document.querySelector(".profile__edit-button");
 
