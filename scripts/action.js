@@ -17,24 +17,14 @@ function closeModal(evt) {
     }
 }
 
-buttonAddCard.addEventListener("click", (evt) => {
-    const data = evt.target.dataset.modalOpen;
-    modals.forEach((modal) => {
-        if (modal.dataset.modal === data) {
-            openPopup(modal);
-        }
-    });
+buttonAddCard.addEventListener("click", () => {
+    openPopup(popupPlace);
 });
 
-buttonProfileEdit.addEventListener("click", function (evt) {
-    const data = evt.target.dataset.modalOpen;
-    modals.forEach((modal) => {
-        if (modal.dataset.modal === data) {
-            openPopup(modal);
-            popupUserName.value = profileName.textContent;
-            popupUserInfo.value = profileUserSubtitle.textContent;
-        }
-    });
+buttonProfileEdit.addEventListener("click", function () {
+    openPopup(popupEdit);
+    popupUserName.value = profileName.textContent;
+    popupUserInfo.value = profileUserSubtitle.textContent;
 });
 
 closePopupBtns.forEach((modal) => {
