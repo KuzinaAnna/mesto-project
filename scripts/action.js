@@ -8,12 +8,12 @@ function closePopup(popup) {
     popup.classList.remove("popup_opened");
 }
 
-function closeModal(evt) {
+function closeModal(e) {
     if (
-        evt.target.classList.contains("popup__close-button") ||
-        evt.target.classList.contains("popup")
+        e.target.classList.contains("popup__close-button") ||
+        e.target.classList.contains("popup")
     ) {
-        closePopup(evt.target.closest(".popup"));
+        closePopup(e.target.closest(".popup"));
     }
 }
 
@@ -32,8 +32,8 @@ closePopupBtns.forEach((modal) => {
 });
 //------------------------------------edit info-------------------------------------------------//
 // Обработчик «отправки» формы
-function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
+function handleProfileFormSubmit(e) {
+    e.preventDefault();
 
     profileName.textContent = popupUserName.value;
     profileUserSubtitle.textContent = popupUserInfo.value;
@@ -62,14 +62,14 @@ function createCard(imgValue, titleValue) {
 
     cardTemplateElement
         .querySelector(".elements__like-btn")
-        .addEventListener("click", function (evt) {
-            evt.target.classList.toggle("elements__like-btn_active");
+        .addEventListener("click", function (e) {
+            e.target.classList.toggle("elements__like-btn_active");
         });
 
     cardTemplateElement
         .querySelector(".elements__delete-btn")
-        .addEventListener("click", function (evt) {
-            const deleteCardItem = evt.target.closest(".elements__item");
+        .addEventListener("click", function (e) {
+            const deleteCardItem = e.target.closest(".elements__item");
             deleteCardItem.remove();
         });
 
@@ -83,8 +83,8 @@ function createCard(imgValue, titleValue) {
     return cardTemplateElement;
 }
 
-function handleFormPlace(evt) {
-    evt.preventDefault();
+function handleFormPlace(e) {
+    e.preventDefault();
     imgValue = imgUrl.value;
     titleValue = imgName.value;
     addCard(imgValue, titleValue);
