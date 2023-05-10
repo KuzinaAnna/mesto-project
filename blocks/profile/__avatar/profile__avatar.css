@@ -1,12 +1,18 @@
 .profile__avatar {
-  max-width: 120px;
-  max-height: 120px;
-  border-radius: 50%;
-  margin-right: 30px;
-  object-fit: cover;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    margin-right: 30px;
+    aspect-ratio: 1 / 1;
+
+    transition: opacity 0.5s linear;
+}
+.profile__avatar:hover {
+    opacity: 0.2;
+    cursor: pointer;
 }
 @media screen and (max-width: 932px) {
-  .profile__avatar {
-    margin-right: 0;
-  }
+    .profile__avatar {
+        margin-right: 0;
+    }
 }

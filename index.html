@@ -17,6 +17,7 @@
         <section class="profile">
             <div class="profile__main">
                 <img class="profile__avatar" src="./images/image.jpg" alt="Аватар пользователя">
+                <img class="profile__avatar_edit-btn" src="./images/bottons/Vector.svg" alt="Изменить аватар">
                 <div class="profile__info">
                     <div class="profile__name-block">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -67,6 +68,19 @@
             </form>
         </div>
     </div>
+
+
+    <div class="popup popup_avatar" data-modal='popup_avatar'>
+        <div class="popup__body">
+            <button class="popup__close-button" type="button"></button>
+            <h3 class="popup__heading">Обновить аватар</h3>
+            <form class="popup__form _newAvatar" name="form-info">
+                <input class="popup__input-box _avatarURL" placeholder="Ссылка на аватар" name="about">
+                <button class="popup__button-submit _placesBtn" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
 
     <div class="popup popup_image">
         <div class="popup__container">

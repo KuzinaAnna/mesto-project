@@ -21,6 +21,10 @@ buttonAddCard.addEventListener("click", () => {
     openPopup(popupPlace);
 });
 
+buttonChangeAvatar.addEventListener("click", () => {
+    openPopup(popupAvatar);
+});
+
 buttonProfileEdit.addEventListener("click", function () {
     openPopup(popupEdit);
     popupUserName.value = profileName.textContent;
@@ -30,6 +34,19 @@ buttonProfileEdit.addEventListener("click", function () {
 closePopupBtns.forEach((modal) => {
     modal.addEventListener("click", closeModal);
 });
+
+modals.forEach((modal) => {
+    modal.addEventListener("click", closeModal);
+});
+
+window.addEventListener("keydown", (e) => {
+    modals.forEach((modal) => {
+        if (e.key === "Escape" && modal.classList.contains("popup_opened")) {
+            modal.classList.remove("popup_opened");
+        }
+    });
+});
+
 //------------------------------------edit info-------------------------------------------------//
 // Обработчик «отправки» формы
 function handleProfileFormSubmit(e) {
@@ -42,6 +59,17 @@ function handleProfileFormSubmit(e) {
 }
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
+
+//обработчик отправки формы для изменения аватара
+function changeAvatarFormSubmit(e) {
+    e.preventDefault();
+
+    profileAvatar.src = profileAvatarUrl.value;
+
+    closePopup(popupAvatar);
+}
+
+avatarForm.addEventListener("submit", changeAvatarFormSubmit);
 
 //------------------------------------добавление карточки-------------------------------------------------//
 

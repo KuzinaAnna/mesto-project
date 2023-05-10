@@ -1,17 +1,23 @@
 const profileForm = document.querySelector("._userInfoForm");
 const cardAddForm = document.querySelector("._newPlacesForm");
+const avatarForm = document.querySelector("._newAvatar");
 
 const popupEdit = document.querySelector(".popup_edit");
 const popupPlace = document.querySelector(".popup_places");
+const popupAvatar = document.querySelector(".popup_avatar");
 
+const page = document.querySelector(".page");
 //------
 const buttonAddCard = document.querySelector(".profile__add-button");
 const buttonProfileEdit = document.querySelector(".profile__edit-button");
+const buttonChangeAvatar = document.querySelector(".profile__avatar");
 
 const popupUserName = document.querySelector("._userName");
 const popupUserInfo = document.querySelector("._userInfo");
 const profileName = document.querySelector(".profile__name");
 const profileUserSubtitle = document.querySelector(".profile__info-subtitle");
+const profileAvatar = document.querySelector(".profile__avatar");
+const profileAvatarUrl = document.querySelector("._avatarURL");
 
 const modals = document.querySelectorAll(".popup");
 const closePopupBtns = document.querySelectorAll(".popup__close-button");
