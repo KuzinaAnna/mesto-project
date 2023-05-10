@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <link rel="icon" href="./images/logo_black.svg" type="image/svg">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
+    <link rel="icon" href="<%=require('./images/logo_black.svg')%>" type="image/svg">
     <title>MESTO</title>
 </head>
 
 <body class="page">
     <header class="header">
-        <a href="#" target="_blank"><img class="header__logo" src="./images/logo.svg" alt="Логотип Mesto-Russia"></a>
+        <a href="#" target="_blank"><img class="header__logo" src="<%=require('./images/logo.svg')%>"
+                alt="Логотип Mesto-Russia"></a>
     </header>
     <main class="main">
         <section class="profile">
             <div class="profile__main">
-                <img class="profile__avatar" src="./images/image.jpg" alt="Аватар пользователя">
-                <img class="profile__avatar_edit-btn" src="./images/bottons/Vector.svg" alt="Изменить аватар">
+                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар пользователя">
+                <img class="profile__avatar_edit-btn" src="<%=require('./images/bottons/Vector.svg')%>"
+                    alt="Изменить аватар">
                 <div class="profile__info">
                     <div class="profile__name-block">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -46,11 +48,23 @@
         <div class="popup__body">
             <button class="popup__close-button" type="button"></button>
             <h3 class="popup__heading">Редактировать профиль</h3>
-            <form class="popup__form _userInfoForm" name="form-info">
-                <input class="popup__input-box popup__input-box_place_name _userName" type="text" placeholder="Имя"
-                    value="Жак-Ив Кусто" name="name">
-                <input class="popup__input-box _userInfo" type="text" placeholder="О себе" value="Исследователь океана"
-                    name="about">
+            <form class="popup__form _userInfoForm" name="form-info" novalidate>
+
+                <input id="name-input" class="popup__input  _userName" type="text" placeholder="Имя"
+                    value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" pattern="^[a-zA-ZА-Яа-я/\s/-]+$"
+                    data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                    required>
+
+                <span class="name-input-error form__input">Вы пропустили это поле.</span>
+
+                <input id="about-input" class="popup__input popup__input-box_place_second  _userInfo" type="text"
+                    placeholder="О себе" value="Исследователь океана" name="about" minlength="2" maxlength="200"
+                    pattern="^[a-zA-ZА-Яа-я/\s/-]+$"
+                    data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                    required>
+
+                <span class="about-input-error form__input">Введите адрес сайта.</span>
+
                 <button class="popup__button-submit" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
         </div>
@@ -60,10 +74,14 @@
         <div class="popup__body">
             <button class="popup__close-button" type="button"></button>
             <h3 class="popup__heading">Новое место</h3>
-            <form class="popup__form _newPlacesForm" name="form-info">
-                <input class="popup__input-box popup__input-box_place_name _placeName" placeholder="Название"
-                    name="name">
-                <input class="popup__input-box _placeURL" placeholder="Ссылка на картинку" name="about">
+            <form class="popup__form _newPlacesForm" name="form-info" novalidate>
+                <input id="placeName" class="popup__input  _placeName" type="text" placeholder="Название" name="name"
+                    minlength="2" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё-\s]+$">
+                <span class="placeName-error form__input" required></span>
+
+                <input id="placeURL" class="popup__input popup__input-box_place_second _placeURL"
+                    placeholder="Ссылка на картинку" name="about" type="url" required>
+                <span class="placeURL-error form__input"></span>
                 <button class="popup__button-submit _placesBtn" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
         </div>
@@ -74,8 +92,10 @@
         <div class="popup__body">
             <button class="popup__close-button" type="button"></button>
             <h3 class="popup__heading">Обновить аватар</h3>
-            <form class="popup__form _newAvatar" name="form-info">
-                <input class="popup__input-box _avatarURL" placeholder="Ссылка на аватар" name="about">
+            <form class="popup__form _newAvatar" name="form-info" novalidate>
+                <input id='avatarURL' class="popup__input _avatarURL" placeholder="Ссылка на аватар" name="about"
+                    type="url" required>
+                <span class="avatarURL-error form__input"></span>
                 <button class="popup__button-submit _placesBtn" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
         </div>
@@ -101,9 +121,8 @@
         </li>
     </template>
 
-    <script src="./scripts/const.js"></script>
-    <script src="./scripts/action.js"></script>
-
+    <!-- <script src="./components/CONST.js"></script>
+    <script src="./components/INDEX1.js"></script> -->
 </body>
 
 </html>

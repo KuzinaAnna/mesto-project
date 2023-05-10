@@ -1,0 +1,9 @@
+.form__input {
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ff0000;
+    visibility: hidden;
+}

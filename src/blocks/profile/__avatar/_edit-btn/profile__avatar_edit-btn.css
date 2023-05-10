@@ -6,3 +6,8 @@
     top: 47px;
     left: 47px;
 }
+@media screen and (max-width: 932px) {
+    .profile__avatar_edit-btn {
+        width: 70%;
+    }
+}
