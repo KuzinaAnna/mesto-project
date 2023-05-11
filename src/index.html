@@ -51,7 +51,7 @@
             <form class="popup__form _userInfoForm" name="form-info" novalidate>
 
                 <input id="name-input" class="popup__input  _userName" type="text" placeholder="Имя"
-                    value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" pattern="^[a-zA-ZА-Яа-я/\s/-]+$"
+                    value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-Я -]+$"
                     data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                     required>
 
@@ -59,7 +59,7 @@
 
                 <input id="about-input" class="popup__input popup__input-box_place_second  _userInfo" type="text"
                     placeholder="О себе" value="Исследователь океана" name="about" minlength="2" maxlength="200"
-                    pattern="^[a-zA-ZА-Яа-я/\s/-]+$"
+                    pattern="^[a-zA-Zа-яА-Я -]+$"
                     data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                     required>
 
@@ -76,8 +76,10 @@
             <h3 class="popup__heading">Новое место</h3>
             <form class="popup__form _newPlacesForm" name="form-info" novalidate>
                 <input id="placeName" class="popup__input  _placeName" type="text" placeholder="Название" name="name"
-                    minlength="2" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё-\s]+$">
-                <span class="placeName-error form__input" required></span>
+                    minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-Я -]+$"
+                    data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                    required>
+                <span class="placeName-error form__input"></span>
 
                 <input id="placeURL" class="popup__input popup__input-box_place_second _placeURL"
                     placeholder="Ссылка на картинку" name="about" type="url" required>
@@ -96,7 +98,8 @@
                 <input id='avatarURL' class="popup__input _avatarURL" placeholder="Ссылка на аватар" name="about"
                     type="url" required>
                 <span class="avatarURL-error form__input"></span>
-                <button class="popup__button-submit _placesBtn" type="submit" aria-label="Сохранить">Сохранить</button>
+                <button class="popup__button-submit _placesBtn _submitAvatar" type="submit"
+                    aria-label="Сохранить">Сохранить</button>
             </form>
         </div>
     </div>
