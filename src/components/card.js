@@ -47,11 +47,16 @@ export function createCard(imgValue, titleValue) {
 
     return cardTemplateElement;
 }
+
+import { buttonSubmitPlaces } from "./utils.js";
+import { disabledAddButton } from "./modal.js";
+
 export function handleFormPlace(e) {
     e.preventDefault();
     const imgValue = imgUrl.value;
     const titleValue = imgName.value;
     addCard(imgValue, titleValue);
+    disabledAddButton(buttonSubmitPlaces);
     closePopup(popupPlace);
     cardAddForm.reset();
 }

@@ -41,9 +41,13 @@ function handleProfileFormSubmit(e) {
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
+import { buttonSubmitAvatar } from "./components/utils.js";
+import { disabledAddButton } from "./components/modal.js";
+
 function changeAvatarFormSubmit(e) {
     e.preventDefault();
     profileAvatar.src = profileAvatarUrl.value;
+    disabledAddButton(buttonSubmitAvatar);
     closePopup(popupAvatar);
     avatarForm.reset();
 }

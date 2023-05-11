@@ -1,12 +1,20 @@
 export const closePopupBtns = document.querySelectorAll(".popup__close-button");
 export const modals = document.querySelectorAll(".popup");
 
+export function disabledAddButton(buttonElement) {
+    const buttonDisabled = document.querySelector(buttonElement);
+    buttonDisabled.disabled = true;
+    buttonDisabled.classList.add("popup__button-submit_inactive");
+}
+
 export function openPopup(element) {
     element.classList.add("popup_opened");
+    document.addEventListener("keydown", closeByEscape);
 }
 
 export function closePopup(popup) {
     popup.classList.remove("popup_opened");
+    document.removeEventListener("keydown", closeByEscape);
 }
 export function closeModal(e) {
     if (
@@ -25,10 +33,9 @@ modals.forEach((modal) => {
     modal.addEventListener("click", closeModal);
 });
 
-window.addEventListener("keydown", (e) => {
-    modals.forEach((modal) => {
-        if (e.key === "Escape" && modal.classList.contains("popup_opened")) {
-            modal.classList.remove("popup_opened");
-        }
-    });
-});
+function closeByEscape(e) {
+    if (e.key == "Escape") {
+        const openedPopup = document.querySelector(".popup_opened");
+        closePopup(openedPopup);
+    }
+}

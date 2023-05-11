@@ -29,7 +29,11 @@ export const popupImage = document.querySelector(".popup__img");
 export const popupImageCaption = document.querySelector(".popup__img-caption");
 export const popupImageContainer = document.querySelector(".popup_image");
 
-const formElement = document.querySelector(".popup__form");
+export const formElement = document.querySelector(".popup__form");
+// export const buttonElement = document.querySelector(".popup__button-submit");
+export const buttonSubmitPlaces = ".popup__button-submit._placesBtn";
+export const buttonSubmitAvatar =
+    ".popup__button-submit._placesBtn._submitAvatar";
 //-------
 
 const newZealand = new URL(
