@@ -11,12 +11,12 @@ import {
 } from "./utils.js";
 import { openPopup, closePopup } from "./modal.js";
 
-export function addCard(imgValue, titleValue) {
-    const cardTemplateElement = createCard(imgValue, titleValue);
+export function addCard(titleValue, imgValue) {
+    const cardTemplateElement = createCard(titleValue, imgValue);
     cardContainer.prepend(cardTemplateElement);
 }
 
-export function createCard(imgValue, titleValue) {
+export function createCard(titleValue, imgValue) {
     const cardTemplateElement = cardTemplate.cloneNode(true);
     const photo = cardTemplateElement.querySelector(".elements__photo");
     const title = cardTemplateElement.querySelector(".elements__title");
@@ -51,11 +51,16 @@ export function createCard(imgValue, titleValue) {
 import { buttonSubmitPlaces } from "./utils.js";
 import { disabledAddButton } from "./modal.js";
 
+import { newCard } from "./api.js";
+
 export function handleFormPlace(e) {
     e.preventDefault();
-    const imgValue = imgUrl.value;
     const titleValue = imgName.value;
-    addCard(imgValue, titleValue);
+    const imgValue = imgUrl.value;
+    addCard(titleValue, imgValue);
+
+    newCard(titleValue, imgValue);
+
     disabledAddButton(buttonSubmitPlaces);
     closePopup(popupPlace);
     cardAddForm.reset();
