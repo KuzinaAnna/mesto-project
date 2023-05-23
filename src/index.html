@@ -30,7 +30,7 @@
                     <p class="profile__info-subtitle">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__add-button " data-modal-open='popup_places' type="button"
+            <button class="profile__add-button" data-modal-open='popup_places' type="button"
                 aria-label="Добавить новое фото">
             </button>
         </section>
@@ -65,7 +65,7 @@
 
                 <span class="about-input-error form__input">Введите адрес сайта.</span>
 
-                <button class="popup__button-submit" type="submit" aria-label="Сохранить">Сохранить</button>
+                <button class="popup__button-submit _infoBtn" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
         </div>
     </div>
@@ -114,14 +114,14 @@
     </div>
 
     <template id="card">
-        <li class="elements__item">
-            <img class="elements__photo " src="" alt="">
+        <li class="elements__item" data-id="">
+            <img class="elements__photo" src="#" alt="">
             <button class="elements__delete-btn" type="button" aria-label="Удалить"></button>
             <div class="elements__info-block">
                 <h2 class="elements__title"></h2>
                 <div class="elements__item__like-wrapper">
-                    <button class="elements__like-btn " type="button" aria-label="Поставить лайк"></button>
-                    <span class="elements__item__like-number">2</span>
+                    <button class="elements__like-btn" id="like" type="button" aria-label="Поставить лайк"></button>
+                    <span class="elements__item__like-number"></span>
                 </div>
 
             </div>
