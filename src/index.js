@@ -2,96 +2,164 @@ import "./pages/index.css"; // импорт CSS стилей
 
 //-------------------modal------------------------------------
 import {
-    buttonAddCard,
-    buttonChangeAvatar,
-    buttonProfileEdit,
-    popupUserName,
-    popupUserInfo,
-    profileName,
-    profileUserSubtitle,
-    popupEdit,
-    popupPlace,
-    popupAvatar,
-    profileForm,
-    profileAvatar,
-    profileAvatarUrl,
-    avatarForm,
+      buttonAddCard,
+      buttonProfileEdit,
+      popupUserName,
+      popupUserInfo,
+      profileName,
+      profileUserSubtitle,
+      popupEdit,
+      popupPlace,
+      popupAvatar,
+      profileForm,
+      profileAvatar,
+      profileAvatarUrl,
+      avatarForm,
+      cardAddForm,
+      formInputPlaceName,
+      formInputImageLink,
+      buttonSubmitPlaces,
+      btnUpdateCard,
+      imgName,
+      imgUrl,
+      popupImageCaption,
 } from "./components/utils.js";
 import { openPopup, closePopup } from "./components/modal.js";
+import { addCard, createCard, toggleLikeBtn } from "./components/card.js";
+import {
+      newCard,
+      config,
+      checkResponse,
+      renderInfo,
+      renderCards,
+      newInfo,
+      newAvatar,
+} from "./components/api";
+import { disabledAddButton } from "./components/modal.js";
 
+//----------------------валидация---------------------------
+import { enableValidation } from "./components/validate.js";
+enableValidation({
+      formSelector: ".popup__form",
+      inputSelector: ".popup__input",
+      submitButtonSelector: ".popup__button-submit",
+      inactiveButtonClass: "popup__button-submit_inactive",
+      inputErrorClass: "popup__input_type_error",
+      errorClass: "form__input_type_error",
+});
+
+//--------------загрузка данных с сервера------------------------
+
+Promise.all([renderInfo(), renderCards()])
+      .then(([profileData, cardsData]) => {
+            profileName.textContent = profileData.name;
+            profileUserSubtitle.textContent = profileData.about;
+            profileAvatar.src = profileData.avatar;
+
+            cardsData.reverse().forEach(function (cardData) {
+                  addCard(
+                        createCard(
+                              cardData.link,
+                              cardData.name,
+                              cardData._id,
+                              cardData.likes,
+                              cardData.owner._id
+                        )
+                  );
+            });
+      })
+      .catch((err) => {
+            console.log(err);
+      });
+
+//-----------------добавление карточки----------------------
 buttonAddCard.addEventListener("click", () => {
-    openPopup(popupPlace);
+      openPopup(popupPlace);
 });
+cardAddForm.addEventListener("submit", handleFormPlace);
 
-buttonChangeAvatar.addEventListener("click", () => {
-    openPopup(popupAvatar);
-});
+function handleFormPlace(e) {
+      e.preventDefault();
+      btnUpdateCard.textContent = "Сохранение...";
+
+      newCard(imgName.value, imgUrl.value)
+            .then((cardData) => {
+                  disabledAddButton(buttonSubmitPlaces);
+                  closePopup(popupPlace);
+                  addCard(
+                        createCard(
+                              cardData.link,
+                              cardData.name,
+                              cardData._id,
+                              cardData.likes,
+                              cardData.owner._id
+                        )
+                  );
+
+                  console.log(cardData);
+                  cardAddForm.reset();
+            })
+            .catch((err) => {
+                  console.log(err);
+            })
+            .finally(() => {
+                  btnUpdateCard.textContent = "Сохранить";
+            });
+}
+//--------------------изменение инфо о себе-----------------
 
 buttonProfileEdit.addEventListener("click", function () {
-    openPopup(popupEdit);
-    popupUserName.value = profileName.textContent;
-    popupUserInfo.value = profileUserSubtitle.textContent;
+      openPopup(popupEdit);
+      popupUserName.value = profileName.textContent;
+      popupUserInfo.value = profileUserSubtitle.textContent;
 });
-
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
-// const btnAvatar = document.querySelector(buttonSubmitAvatar);
+import { buttonSubmitInfo } from "./components/utils.js";
+const btnUpdateInfo = document.querySelector(buttonSubmitInfo);
 
 function handleProfileFormSubmit(e) {
-    e.preventDefault();
-    profileName.textContent = popupUserName.value;
-    profileUserSubtitle.textContent = popupUserInfo.value;
-    closePopup(popupEdit);
-    newInfo(profileName.textContent, profileUserSubtitle.textContent);
-    renderInfo(config);
+      e.preventDefault();
+      btnUpdateInfo.textContent = "Сохранение...";
+      profileName.textContent = popupUserName.value;
+      profileUserSubtitle.textContent = popupUserInfo.value;
+      newInfo(profileName.textContent, profileUserSubtitle.textContent)
+            .then(() => {
+                  closePopup(popupEdit);
+            })
+            .catch((err) => {
+                  console.log(err);
+            })
+            .finally(() => {
+                  btnUpdateInfo.textContent = "Сохранить";
+            });
 }
 
-//---------------avatar---------------
+//---------------изменение avatar-а---------------
+
 import { buttonSubmitAvatar } from "./components/utils.js";
-import { disabledAddButton } from "./components/modal.js";
-import { newAvatar } from "./components/api.js";
-import { replaceText } from "./components/api.js";
 
-function changeAvatarFormSubmit(e) {
-    e.preventDefault();
-    profileAvatar.src = profileAvatarUrl.value;
-    disabledAddButton(buttonSubmitAvatar);
-    // replaceText(btnAvatar, "Сохранение...");
-    closePopup(popupAvatar);
-    // replaceText(btnAvatar, "Сохранить");
-    avatarForm.reset();
-    newAvatar(profileAvatar.src);
-}
+profileAvatar.addEventListener("click", () => {
+      openPopup(popupAvatar);
+});
+const btnUpdateAvatar = document.querySelector(buttonSubmitAvatar);
 
 avatarForm.addEventListener("submit", changeAvatarFormSubmit);
 
-//-----------------------card-----------------------------------
-import { cardAddForm, initialCards } from "./components/utils.js";
-import { addCard, handleFormPlace } from "./components/card.js";
-
-cardAddForm.addEventListener("submit", handleFormPlace);
-
-initialCards.forEach(function (initialCards) {
-    addCard(initialCards.name, initialCards.link);
-});
-
-//-----------------------validate-----------------------------------
-import { enableValidation } from "./components/validate.js";
-enableValidation({
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button-submit",
-    inactiveButtonClass: "popup__button-submit_inactive",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "form__input_type_error",
-});
-//----------------------------------------------------
-import {
-    config,
-    renderInfo,
-    renderCards,
-    newInfo,
-    newCard,
-} from "./components/api";
-
-renderInfo(config);
+function changeAvatarFormSubmit(e) {
+      e.preventDefault();
+      btnUpdateAvatar.textContent = "Сохранение...";
+      profileAvatar.src = profileAvatarUrl.value;
+      newAvatar(profileAvatar.src)
+            .then(() => {
+                  disabledAddButton(buttonSubmitAvatar);
+                  closePopup(popupAvatar);
+                  avatarForm.reset();
+            })
+            .catch((err) => {
+                  console.log(err);
+            })
+            .finally(() => {
+                  btnUpdateAvatar.textContent = "Сохранить";
+            });
+}
