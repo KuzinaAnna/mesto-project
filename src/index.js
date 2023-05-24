@@ -23,19 +23,19 @@ import {
       imgName,
       imgUrl,
       popupImageCaption,
-} from "./components/utils.js";
+} from "./components/constants.js";
 import { openPopup, closePopup } from "./components/modal.js";
 import { addCard, createCard, toggleLikeBtn } from "./components/card.js";
 import {
-      newCard,
+      postCard,
       config,
       checkResponse,
       renderInfo,
       renderCards,
-      newInfo,
-      newAvatar,
+      updateInfo,
+      updateAvatar,
 } from "./components/api";
-import { disabledAddButton } from "./components/modal.js";
+import { disableButton } from "./components/modal.js";
 
 //----------------------валидация---------------------------
 import { enableValidation } from "./components/validate.js";
@@ -49,13 +49,13 @@ enableValidation({
 });
 
 //--------------загрузка данных с сервера------------------------
-
+export let userId = "";
 Promise.all([renderInfo(), renderCards()])
       .then(([profileData, cardsData]) => {
             profileName.textContent = profileData.name;
             profileUserSubtitle.textContent = profileData.about;
             profileAvatar.src = profileData.avatar;
-
+            userId = profileData._id;
             cardsData.reverse().forEach(function (cardData) {
                   addCard(
                         createCard(
@@ -82,10 +82,10 @@ function handleFormPlace(e) {
       e.preventDefault();
       btnUpdateCard.textContent = "Сохранение...";
 
-      newCard(imgName.value, imgUrl.value)
+      postCard(imgName.value, imgUrl.value)
             .then((cardData) => {
-                  disabledAddButton(buttonSubmitPlaces);
                   closePopup(popupPlace);
+                  disableButton(btnUpdateCard);
                   addCard(
                         createCard(
                               cardData.link,
@@ -95,7 +95,6 @@ function handleFormPlace(e) {
                               cardData.owner._id
                         )
                   );
-
                   console.log(cardData);
                   cardAddForm.reset();
             })
@@ -115,17 +114,18 @@ buttonProfileEdit.addEventListener("click", function () {
 });
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 
-import { buttonSubmitInfo } from "./components/utils.js";
+import { buttonSubmitInfo } from "./components/constants.js";
 const btnUpdateInfo = document.querySelector(buttonSubmitInfo);
 
 function handleProfileFormSubmit(e) {
       e.preventDefault();
       btnUpdateInfo.textContent = "Сохранение...";
-      profileName.textContent = popupUserName.value;
-      profileUserSubtitle.textContent = popupUserInfo.value;
-      newInfo(profileName.textContent, profileUserSubtitle.textContent)
+      updateInfo(popupUserName.value, popupUserInfo.value)
             .then(() => {
+                  profileName.textContent = popupUserName.value;
+                  profileUserSubtitle.textContent = popupUserInfo.value;
                   closePopup(popupEdit);
+                  profileForm.reset();
             })
             .catch((err) => {
                   console.log(err);
@@ -137,7 +137,7 @@ function handleProfileFormSubmit(e) {
 
 //---------------изменение avatar-а---------------
 
-import { buttonSubmitAvatar } from "./components/utils.js";
+import { buttonSubmitAvatar } from "./components/constants.js";
 
 profileAvatar.addEventListener("click", () => {
       openPopup(popupAvatar);
@@ -149,10 +149,10 @@ avatarForm.addEventListener("submit", changeAvatarFormSubmit);
 function changeAvatarFormSubmit(e) {
       e.preventDefault();
       btnUpdateAvatar.textContent = "Сохранение...";
-      profileAvatar.src = profileAvatarUrl.value;
-      newAvatar(profileAvatar.src)
+      updateAvatar(profileAvatarUrl.value)
             .then(() => {
-                  disabledAddButton(buttonSubmitAvatar);
+                  profileAvatar.src = profileAvatarUrl.value;
+                  disableButton(buttonSubmitAvatar);
                   closePopup(popupAvatar);
                   avatarForm.reset();
             })
