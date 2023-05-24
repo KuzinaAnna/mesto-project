@@ -31,7 +31,7 @@ export const renderCards = () => {
       // .then((res) => console.log(res));
 };
 //  Загрузка инфо о пользователе на сервер
-export const newInfo = (name, about) => {
+export const updateInfo = (name, about) => {
       return fetch(`${config.baseUrl}/users/me`, {
             method: "PATCH",
             headers: config.headers,
@@ -39,32 +39,10 @@ export const newInfo = (name, about) => {
                   name: name,
                   about: about,
             }),
-      })
-            .then((res) => checkResponse(res))
-            .then((res) => console.log(res));
+      }).then((res) => checkResponse(res));
 };
-
-// загрузка исходных карточек с сервера
-import { addCard } from "./card";
-
-// export const renderCards = () => {
-//       return (
-//             fetch(`${config.baseUrl}/cards`, {
-//                   headers: config.headers,
-//             })
-//                    .then((result) => console.log(result))
-//                   .then((res) => checkResponse(res))
-//                   .then((arr) => {
-//                         arr.forEach((item) => {
-//                               addCard(item.name, item.link);
-//                         });
-//                   })
-//       );
-// };
-//renderCards();
-
 //  Добавление новой карточки
-export const newCard = (name, link) => {
+export const postCard = (name, link) => {
       return fetch(`${config.baseUrl}/cards`, {
             method: "POST",
             headers: config.headers,
@@ -76,7 +54,7 @@ export const newCard = (name, link) => {
       // .then((result) => console.log(result));
 };
 //   Загрузка нового аватара
-export const newAvatar = (link) => {
+export const updateAvatar = (link) => {
       return fetch(`${config.baseUrl}/users/me/avatar`, {
             method: "PATCH",
             headers: config.headers,
@@ -105,7 +83,7 @@ export const likeCard = (cardId) => {
 };
 
 //   Удаление лайка
-export const likeCardRemove = (cardId) => {
+export const removeLike = (cardId) => {
       return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
             method: "DELETE",
             headers: config.headers,
