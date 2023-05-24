@@ -9,14 +9,14 @@ import {
       cardAddForm,
       cardTemplate,
       buttonSelectors,
-      myId,
       placeNameInput,
       placeImgInput,
       buttonSubmitPlaces,
       cardSelectors,
-} from "./utils.js";
-import { openPopup, closePopup, disabledAddButton } from "./modal.js";
-import { deleteCardApi, likeCard, likeCardRemove } from "./api.js";
+} from "./constants.js";
+import { userId } from "../index.js";
+import { openPopup, closePopup, disableButton } from "./modal.js";
+import { deleteCardApi, likeCard, removeLike } from "./api.js";
 
 export function checkLikeBtn(button) {
       return button.classList.contains("elements__like-btn_active");
@@ -24,7 +24,7 @@ export function checkLikeBtn(button) {
 //Проверка наличия моих лайков
 export const checkLikesData = (likes) => {
       return likes.some((like) => {
-            return like._id === myId;
+            return like._id === userId;
       });
 };
 
@@ -66,16 +66,20 @@ export function createCard(link, name, cardId, likes, ownerId) {
 
       cardElement.setAttribute("data-id", `${cardId}`); // получаем значение iD карточки
       if (checkLikesData(likes)) toggleLikeBtn(buttonLikeElement);
-      if (ownerId !== myId) buttonDeleteElement.remove(); //убираем значок корзинки если эта карточка имеет не мой Id
+      if (ownerId !== userId) buttonDeleteElement.remove(); //убираем значок корзинки если эта карточка имеет не мой Id
 
       buttonLikeElement.addEventListener("click", handleLikeCard); //ставим/убираем лайк при клике
 
       // удаление карточки
       buttonDeleteElement.addEventListener("click", function (e) {
             const deleteCardItem = e.target.closest(".elements__item");
-            deleteCardApi(cardId).then(() => {
-                  deleteCardItem.remove();
-            });
+            deleteCardApi(cardId)
+                  .then(() => {
+                        deleteCardItem.remove();
+                  })
+                  .catch((err) => {
+                        console.log(err);
+                  });
       });
 
       renderLikesCounter(cardElement, likes);
@@ -100,16 +104,16 @@ function handleLikeCard(e) {
                         renderLikesCounter(targetCard, cardData.likes);
                   })
                   .catch((err) => {
-                        console.log(`Ошибка: ${err}`);
+                        console.log(err);
                   });
       } else {
-            likeCardRemove(targetCard.dataset.id)
+            removeLike(targetCard.dataset.id)
                   .then((cardData) => {
                         toggleLikeBtn(e.target);
                         renderLikesCounter(targetCard, cardData.likes);
                   })
                   .catch((err) => {
-                        console.log(`Ошибка: ${err}`);
+                        console.log(err);
                   });
       }
 }
