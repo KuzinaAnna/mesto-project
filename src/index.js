@@ -95,7 +95,7 @@ function handleFormPlace(e) {
                               cardData.owner._id
                         )
                   );
-                  console.log(cardData);
+
                   cardAddForm.reset();
             })
             .catch((err) => {
@@ -142,13 +142,12 @@ import { buttonSubmitAvatar } from "./components/constants.js";
 profileAvatar.addEventListener("click", () => {
       openPopup(popupAvatar);
 });
-const btnUpdateAvatar = document.querySelector(buttonSubmitAvatar);
 
 avatarForm.addEventListener("submit", changeAvatarFormSubmit);
 
 function changeAvatarFormSubmit(e) {
       e.preventDefault();
-      btnUpdateAvatar.textContent = "Сохранение...";
+      buttonSubmitAvatar.textContent = "Сохранение...";
       updateAvatar(profileAvatarUrl.value)
             .then(() => {
                   profileAvatar.src = profileAvatarUrl.value;
@@ -160,6 +159,6 @@ function changeAvatarFormSubmit(e) {
                   console.log(err);
             })
             .finally(() => {
-                  btnUpdateAvatar.textContent = "Сохранить";
+                  buttonSubmitAvatar.textContent = "Сохранить";
             });
 }

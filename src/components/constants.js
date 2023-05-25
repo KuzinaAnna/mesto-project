@@ -32,16 +32,16 @@ export const placeImgInput = document.querySelector("#placeURL");
 export const formSelectors = {
       formSelector: ".form",
       inputSelector: ".form__input",
-      //submitButtonSelector: ".button-save",
+
+      submitButtonSelector: ".popup__button-submit",
+      inactiveButtonClass: "popup__button-submit_inactive",
 };
 export const imgUrl = document.querySelector("._placeURL");
 export const imgName = document.querySelector("._placeName");
 export const popupImage = document.querySelector(".popup__img");
 export const popupImageCaption = document.querySelector(".popup__img-caption");
 export const popupImageContainer = document.querySelector(".popup_image");
-//export const formElement = document.querySelector(".popup__form");
-export const buttonSubmitPlaces = ".popup__button-submit._placesBtn";
-export const btnUpdateCard = document.querySelector(buttonSubmitPlaces);
-export const buttonSubmitAvatar =
-      ".popup__button-submit._placesBtn._submitAvatar";
+
+export const btnUpdateCard = document.querySelector("._placesBtn");
+export const buttonSubmitAvatar = document.querySelector("._submitAvatar");
 export const buttonSubmitInfo = ".popup__button-submit._infoBtn";

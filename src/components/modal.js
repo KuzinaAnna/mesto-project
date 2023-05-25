@@ -1,9 +1,8 @@
 export const modals = document.querySelectorAll(".popup");
 
-export function disableButton(buttonElement) {
-      const buttonDisabled = document.querySelector(buttonElement);
-      buttonDisabled.disabled = true;
-      buttonDisabled.classList.add("popup__button-submit_inactive");
+export function disableButton(button) {
+      button.disabled = true;
+      button.classList.add("popup__button-submit_inactive");
 }
 
 export function openPopup(element) {
